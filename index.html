@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabla con Tabs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .tabs {
+      display: flex;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    .tab {
+      padding: 10px 20px;
+      border: 1px solid #ccc;
+      border-bottom: none;
+      background-color: #f1f1f1;
+      margin-right: 5px;
+    }
+    .tab.active {
+      background-color: #fff;
+      font-weight: bold;
+    }
+    .tab-content {
+      display: none;
+      border: 1px solid #ccc;
+      padding: 15px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #999;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showTab(0)">Juegos</div>
+    <div class="tab" onclick="showTab(1)">Empresas</div>
+    <div class="tab" onclick="showTab(2)">Consolas</div>
+  </div>
+
+  <div class="tab-content active">
+    <h3>Juegos</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Empresa</th>
+          <th>Consola</th>
+          <th>Fecha</th>
+          <th>Activo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Zelda</td>
+          <td>Nintendo</td>
+          <td>Switch</td>
+          <td>2017</td>
+          <td>Sí</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-content">
+    <h3>Empresas</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Nintendo</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Sony</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-content">
+    <h3>Consolas</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Empresa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Switch</td>
+          <td>Nintendo</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>PS5</td>
+          <td>Sony</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function showTab(index) {
+      const tabs = document.querySelectorAll(".tab");
+      const contents = document.querySelectorAll(".tab-content");
+
+      tabs.forEach((tab, i) => {
+        tab.classList.toggle("active", i === index);
+        contents[i].classList.toggle("active", i === index);
+      });
+    }
+  </script>
+
+</body>
+</html>
